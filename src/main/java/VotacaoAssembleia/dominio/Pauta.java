@@ -18,6 +18,9 @@ public class Pauta implements Serializable {
     private int idPauta;
     private String descricao;
 
+    @OneToOne(mappedBy = "pauta",cascade = CascadeType.ALL )
+    private Votacao votacao;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "pauta")

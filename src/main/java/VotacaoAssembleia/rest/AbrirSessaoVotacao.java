@@ -1,8 +1,7 @@
 package VotacaoAssembleia.rest;
 
-import VotacaoAssembleia.dominio.Decisao;
-import VotacaoAssembleia.gerenciador.AbrirSessaoVotacaoGerenciador;
-import VotacaoAssembleia.gerenciador.VotoGerenciador;
+import VotacaoAssembleia.dominio.Votacao;
+import VotacaoAssembleia.gerenciador.VotacaoGerenciador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +15,11 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/votacao")
 public class AbrirSessaoVotacao {
 
-//    @Autowired
-//    VotoGerenciador votoGerenciador;
     @Autowired
-    AbrirSessaoVotacaoGerenciador abrirSessaoVotacaoGerenciador;
+    VotacaoGerenciador abrirSessaoVotacaoGerenciador;
 
     @GetMapping("{id}")
-    public Decisao tempoDefault(@PathVariable("id") int id)throws InterruptedException{
+    public Votacao tempoDefault(@PathVariable("id") int id)throws InterruptedException{
         abertaVotacao = true;
         idPautaAberta = id;
         System.out.println("A sessão de votação pauta id="+idPautaAberta+" ficará aberta por 1 minuto.");
@@ -33,7 +30,7 @@ public class AbrirSessaoVotacao {
     }
 
     @GetMapping("{id}/tempo/{t}")
-    public Decisao tempoVariavel(@PathVariable("id") int id,@PathVariable("t") int t) throws InterruptedException {
+    public Votacao tempoVariavel(@PathVariable("id") int id, @PathVariable("t") int t) throws InterruptedException {
         abertaVotacao = true;
         idPautaAberta = id;
         System.out.println("A sessão de votação pauta id="+idPautaAberta+" ficará aberta por "+t+" minutos.");

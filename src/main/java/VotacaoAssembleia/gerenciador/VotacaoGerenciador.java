@@ -1,7 +1,8 @@
 package VotacaoAssembleia.gerenciador;
 
+import VotacaoAssembleia.acervo.VotacaoRepository;
 import VotacaoAssembleia.acervo.VotoRepository;
-import VotacaoAssembleia.dominio.Decisao;
+import VotacaoAssembleia.dominio.Votacao;
 import VotacaoAssembleia.dominio.Pauta;
 import VotacaoAssembleia.dominio.Voto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AbrirSessaoVotacaoGerenciador {
+public class VotacaoGerenciador {
 
     @Autowired
     private VotoRepository votoRepository;
@@ -18,9 +19,10 @@ public class AbrirSessaoVotacaoGerenciador {
     private VotoGerenciador votoGerenciador;
     @Autowired
     private PautaGerenciador pautaGerenciador;
+    @Autowired
+    private VotacaoRepository votacaoRepository;
 
-
-    public Decisao contaVotos(int idPauta) {
+    public Votacao contaVotos(int idPauta) {
         List<Voto> list = votoGerenciador.findAll();
         int x = list.size();
         System.out.println("Votos: " + x);
@@ -60,8 +62,9 @@ public class AbrirSessaoVotacaoGerenciador {
         }
         System.out.println("Decisão: " + votacao);
         Pauta pauta = pautaGerenciador.findById(idPauta);
-        Decisao decisao = new Decisao(pauta, sim,nao,sim+nao,votacao);
+        Votacao decisao = new Votacao(pauta, sim,nao,sim+nao,votacao);
         System.out.println(decisao);
+        votacaoRepository.save(decisao);
 
         return decisao;
     }

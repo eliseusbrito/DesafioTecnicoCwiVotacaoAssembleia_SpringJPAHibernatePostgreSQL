@@ -2,20 +2,13 @@ package VotacaoAssembleia.rest;
 
 import VotacaoAssembleia.acervo.AssociadoRepository;
 import VotacaoAssembleia.acervo.PautaRepository;
-import VotacaoAssembleia.acervo.VotoRepository;
-import VotacaoAssembleia.dominio.Associado;
-import VotacaoAssembleia.dominio.Decisao;
-import VotacaoAssembleia.dominio.Pauta;
 import VotacaoAssembleia.dominio.Voto;
 import VotacaoAssembleia.gerenciador.VotoGerenciador;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController

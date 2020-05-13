@@ -19,10 +19,6 @@ public class VotoGerenciador {
     @Autowired
     private AssociadoRepository associadoRepository;
 
-//    private VotoAcervo acervoVoto = new VotoAcervo();
-//    private PautaAcervo acervoPauta = new PautaAcervo();
-//    private AssociadoAcervo acervoAssociado = new AssociadoAcervo();
-
     public List<Voto> findAll(){
         return votoRepository.findAll();
     }
@@ -32,7 +28,7 @@ public class VotoGerenciador {
         return obj.get();
     }
 
-      public Voto insert(Voto obj){
+    public Voto insert(Voto obj){
         return votoRepository.save(obj);
     }
 
@@ -82,53 +78,6 @@ public class VotoGerenciador {
 //        }
 //        return acervoVoto.listar();
 //    }
-    public void contaVotos() {
-        List<Voto> list = findAll();
-        int x = list.size();
-        System.out.println("Votos: " + x);
-//        for(Voto y : list){
-        for (int i = 0; i < x; i++) {
-            System.out.println(list.get(i).getEscolha());
-            System.out.println(list);
-        }
-        System.out.println("Listou os votos");
-
-
-        int idPauta = 1;
-        System.out.println("Inciciou a Decisao");
-        int sim = 0;
-        int nao = 0;
-        System.out.println("sim: " + sim);
-        String votacao = "";
-
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getPauta().getIdPauta() == idPauta && list.get(i).getEscolha() == 'S') {
-                sim++;
-            }
-            if (list.get(i).getPauta().getIdPauta() == idPauta && list.get(i).getEscolha() == 'N') {
-                nao++;
-            }
-        }
-        System.out.println("Total de Votos: " + (sim + nao));
-        System.out.println("Votos Sim: " + sim);
-        System.out.println("Votos Não: " + nao);
-        if (sim > nao) {
-            votacao = "Pauta id=" + idPauta + " Aprovada!";
-        }
-        if (sim < nao) {
-            votacao = "Pauta id=" + idPauta + " Não Aprovada!";
-        }
-        if (sim == nao) {
-            votacao = "Pauta id=" + idPauta + " precisa nova votação!";
-        }
-        System.out.println("Decisão: " + votacao);
-//        Pauta pauta = pautaGerenciador.findById(idPauta);
-//        Decisao decisao = new Decisao(pauta, sim,nao,sim+nao,votacao);
-//        System.out.println(decisao);
-
-    }
-
-
 
 }
 
