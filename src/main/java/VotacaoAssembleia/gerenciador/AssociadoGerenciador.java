@@ -2,6 +2,7 @@ package VotacaoAssembleia.gerenciador;
 
 import VotacaoAssembleia.acervo.AssociadoRepository;
 import VotacaoAssembleia.dominio.Associado;
+import VotacaoAssembleia.gerenciador.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -20,7 +21,7 @@ public class AssociadoGerenciador {
 
     public Associado findById(Integer id){
         Optional<Associado> obj=associadoRepository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Associado insert(Associado associado){
