@@ -3,6 +3,7 @@ package VotacaoAssembleia.dominio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,9 @@ public class Associado implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank
     private String nome;
+    @NotBlank
     private String cpf;
 
     @JsonIgnore

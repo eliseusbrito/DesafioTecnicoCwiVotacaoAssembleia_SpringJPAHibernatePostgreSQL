@@ -16,6 +16,7 @@ public class AssociadoGerenciador {
     private AssociadoRepository associadoRepository;
 
     public List<Associado> findAll(){
+        System.out.println("Listou todos Associados.");
         return associadoRepository.findAll();
         }
 
@@ -25,6 +26,7 @@ public class AssociadoGerenciador {
     }
 
     public Associado insert(Associado associado){
+        System.out.println("Iniciou insert");
         List<Associado> associados = associadoRepository.findAll();
         if (associado.getNome().equals("")||associado.getCpf().equals("")){
             System.out.println("Algum campo não foi prenchido. O associado não foi cadastrado.");

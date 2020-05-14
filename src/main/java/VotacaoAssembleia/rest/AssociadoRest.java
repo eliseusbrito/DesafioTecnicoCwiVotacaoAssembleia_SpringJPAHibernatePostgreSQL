@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class AssociadoRest {
     }
 
     @PostMapping
-    public ResponseEntity<Associado> insert(@RequestBody Associado obj){
+    public ResponseEntity<Associado> insert(@RequestBody @Valid Associado obj){
         obj = associadoGerenciador.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(obj.getId()).toUri();
