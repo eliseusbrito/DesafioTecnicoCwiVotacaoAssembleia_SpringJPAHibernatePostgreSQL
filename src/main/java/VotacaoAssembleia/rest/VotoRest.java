@@ -61,7 +61,7 @@ public class VotoRest {
 
 
 
-    @PostMapping("/Pauta/{idPauta}/Associado/{idAssociado}/Escolha/{escolha}")
+    @PostMapping("/pauta/{idPauta}/associado/{idAssociado}/escolha/{escolha}")
     public Voto cadastrarVoto(@PathVariable("idPauta") int idPauta, @PathVariable("idAssociado")int idAssociado, @PathVariable("escolha") char escolha)  {
         System.out.println("idPauta: "+idPauta);
         System.out.println("idAssociado: "+idAssociado);

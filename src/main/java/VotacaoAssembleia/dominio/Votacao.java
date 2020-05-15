@@ -89,7 +89,7 @@ public class Votacao implements Serializable {
     public String toString() {
         return "Votacao{" +
                 "idVotacao=" + idVotacao +
-                ", pauta=" + pauta +
+//                ", pauta=" + pauta +
                 ", sim=" + sim +
                 ", nao=" + nao +
                 ", total=" + total +

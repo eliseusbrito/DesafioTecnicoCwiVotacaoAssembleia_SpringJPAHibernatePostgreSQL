@@ -26,7 +26,7 @@ public class AssociadoGerenciador {
     }
 
     public Associado insert(Associado associado){
-        System.out.println("Iniciou insert");
+        System.out.println("Iniciou processo de salvar associado.");
         List<Associado> associados = associadoRepository.findAll();
         if (associado.getNome().equals("")||associado.getCpf().equals("")){
             System.out.println("Algum campo não foi prenchido. O associado não foi cadastrado.");
@@ -36,12 +36,6 @@ public class AssociadoGerenciador {
                 System.out.println("CPF já existente. O associado não foi cadastrado. ");
                 return associadoExistente;
             }}
-//        List<Associado> results = associadoRepository.findAll();
-
-//        System.out.println(results.size());
-//        for (Associado x : results){
-//            System.out.println(results.get);
-//        }
 
         return associadoRepository.save(associado);
     }

@@ -3,6 +3,7 @@ package VotacaoAssembleia.dominio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +17,11 @@ public class Pauta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPauta;
+    @NotBlank
     private String descricao;
 
     @OneToOne(mappedBy = "pauta",cascade = CascadeType.ALL )
     private Votacao votacao;
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "pauta")
@@ -29,10 +30,15 @@ public class Pauta implements Serializable {
     public Pauta() {
     }
 
-    public Pauta( String descricao) {
-       this.descricao = descricao;
+    public Pauta(@NotBlank String descricao, Votacao votacao, List<Voto> votos) {
+        this.descricao = descricao;
+        this.votacao = votacao;
+        this.votos = votos;
     }
 
+    public Pauta(String descricao) {
+       this.descricao = descricao;
+    }
 
     public int getIdPauta() {
         return idPauta;
@@ -55,6 +61,8 @@ public class Pauta implements Serializable {
         return "Pauta{" +
                 "idPauta=" + idPauta +
                 ", descricao='" + descricao + '\'' +
+                ", votacao=" + votacao +
+//                ", votos=" + votos +
                 '}';
     }
 
