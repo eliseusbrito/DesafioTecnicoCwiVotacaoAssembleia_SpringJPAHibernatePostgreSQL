@@ -1,5 +1,7 @@
 package VotacaoAssembleia.dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,10 +15,10 @@ public class Votacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVotacao;
 
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Pauta pauta;
-
     private int sim;
     private int nao;
     private int total;
@@ -31,10 +33,6 @@ public class Votacao implements Serializable {
         this.nao = nao;
         this.total = total;
         this.decisao = decisao;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public int getIdVotacao() {
@@ -94,6 +92,7 @@ public class Votacao implements Serializable {
                 ", nao=" + nao +
                 ", total=" + total +
                 ", decisao='" + decisao + '\'' +
+//                ", votos=" + votos +
                 '}';
     }
 

@@ -30,14 +30,13 @@ public class Pauta implements Serializable {
     public Pauta() {
     }
 
-    public Pauta(@NotBlank String descricao, Votacao votacao, List<Voto> votos) {
+    public Pauta(@NotBlank String descricao,  Votacao votacao) {
         this.descricao = descricao;
         this.votacao = votacao;
-        this.votos = votos;
     }
 
-    public Pauta(String descricao) {
-       this.descricao = descricao;
+    public Pauta(@NotBlank String descricao) {
+        this.descricao = descricao;
     }
 
     public int getIdPauta() {
@@ -56,13 +55,24 @@ public class Pauta implements Serializable {
         this.descricao = descricao;
     }
 
+    public List<Voto> getVotos() {
+        return votos;
+    }
+
+    public Votacao getVotacao() {
+        return votacao;
+    }
+
+    public void setVotacao(Votacao votacao) {
+        this.votacao = votacao;
+    }
+
     @Override
     public String toString() {
         return "Pauta{" +
                 "idPauta=" + idPauta +
                 ", descricao='" + descricao + '\'' +
                 ", votacao=" + votacao +
-//                ", votos=" + votos +
                 '}';
     }
 

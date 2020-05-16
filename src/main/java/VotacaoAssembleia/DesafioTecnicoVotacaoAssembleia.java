@@ -9,8 +9,9 @@ public class DesafioTecnicoVotacaoAssembleia {
 
 	public static boolean abertaVotacao = false;
 	public static int idPautaAberta = 0;
-	public static int votacaoRealizada = 0;
-
+	public static int controleCadastroExistente = 0;
+	public static int controleTipoVoto = 0;
+	public static int msgVotoRealizado = 0;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioTecnicoVotacaoAssembleia.class, args);

@@ -34,13 +34,6 @@ public class Associado implements Serializable {
         this.cpf = cpf;
     }
 
-    public Associado(int id, String nome, String cpf, List<Voto> votos) {
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.votos = votos;
-    }
-
     public int getId() {
         return id;
     }
@@ -59,6 +52,10 @@ public class Associado implements Serializable {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public List<Voto> getVotos() {

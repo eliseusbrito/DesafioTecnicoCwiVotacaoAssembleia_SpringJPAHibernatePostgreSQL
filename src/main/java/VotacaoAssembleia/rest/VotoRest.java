@@ -2,28 +2,28 @@ package VotacaoAssembleia.rest;
 
 import VotacaoAssembleia.acervo.AssociadoRepository;
 import VotacaoAssembleia.acervo.PautaRepository;
+import VotacaoAssembleia.acervo.VotoRepository;
 import VotacaoAssembleia.dominio.Voto;
 import VotacaoAssembleia.gerenciador.VotoGerenciador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
+
+import static VotacaoAssembleia.DesafioTecnicoVotacaoAssembleia.*;
 
 @RestController
 @RequestMapping("/voto")
 
-
 public class VotoRest {
-
-//    private VotoGerenciador gerenciador = new VotoGerenciador();
 
     @Autowired
     private VotoGerenciador votoGerenciador;
-
     @Autowired
     private PautaRepository pautaRepository;
+    @Autowired
+    private VotoRepository votoRepository;
     @Autowired
     private AssociadoRepository associadoRepository;
 
@@ -39,50 +39,22 @@ public class VotoRest {
         return ResponseEntity.ok().body(obj);
     }
 
-
-//    @GetMapping
-//    public List<Voto> listarTodosVotos() {
-//        return gerenciador.listar();
-//    }
-
-//    @PostMapping
-////    @PostMapping("/Pauta/{idPauta}/Associado/{idAssociado}/Escolha/{escolha}")
-//    public ResponseEntity<Voto> insert(@RequestBody Voto obj){
-//        System.out.println(obj);
-//        System.out.println("iniciou post mapping voto");
-////    public ResponseEntity<Voto> insert(@PathVariable("idPauta") int idPauta, @PathVariable("idAssociado")int idAssociado, @PathVariable("escolha")char escolha){
-//        obj = votoGerenciador.insert(obj);
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//                .buildAndExpand(obj.getIdVoto()).toUri();
-//        System.out.println("teste salvar voto");
-//        return ResponseEntity.created(uri).body(obj);
-//    }
-
-
-
-
     @PostMapping("/pauta/{idPauta}/associado/{idAssociado}/escolha/{escolha}")
-    public Voto cadastrarVoto(@PathVariable("idPauta") int idPauta, @PathVariable("idAssociado")int idAssociado, @PathVariable("escolha") char escolha)  {
-        System.out.println("idPauta: "+idPauta);
-        System.out.println("idAssociado: "+idAssociado);
-        System.out.println("escolha: "+escolha);
-
-        return votoGerenciador.salvar(idPauta,idAssociado,escolha);
+    public ResponseEntity<?> cadastrarVoto(@PathVariable("idPauta") int idPauta, @PathVariable("idAssociado")int idAssociado, @PathVariable("escolha") char escolha)  {
+        Voto obj = votoGerenciador.salvar(idPauta,idAssociado,escolha);
+        if(controleTipoVoto==1) {
+            controleTipoVoto = 0;
+            return ResponseEntity.badRequest().body("Você deve votar [S] para sim ou [N] para não. Este voto não foi considerado.");
+        }
+        if (idPauta!=idPautaAberta) {
+            return ResponseEntity.badRequest().body("Votação não esta aberta, não sendo possível salvar votos.");
+        }
+        if(msgVotoRealizado==1) {
+        msgVotoRealizado=0;
+        return ResponseEntity.ok().body(obj);}
+        return ResponseEntity.badRequest().body("Voto já realizado!");
     }
 
-//    @PostMapping("/Pauta/{idPauta}/Associado/{idAssociado}/Escolha/{escolha}")
-//    public Voto cadastrarVoto(@PathVariable("idPauta") int idPauta, @PathVariable("idAssociado")int idAssociado, @PathVariable("escolha")String escolha)  {
-//        System.out.println("idPauta: "+idPauta);
-//        System.out.println("idAssociado: "+idAssociado);
-//        Voto obj = new Voto(pautaRepository.getOne(idPauta), associadoRepository.getOne(idAssociado), escolha);
-//        System.out.println("obj: "+obj);
-//        obj = votoGerenciador.insert(obj);
-////        return votoGerenciador.findById(1);
-////        return null;
-//        return obj;
-////        return ResponseEntity.ok().body(obj);
-
-//    }
 }
 
 

@@ -8,4 +8,5 @@ public class ResourceNotFoundException extends RuntimeException {
         super("Associado id=" +id+" não encontrado no cadastro.");
     }
 
+
 }

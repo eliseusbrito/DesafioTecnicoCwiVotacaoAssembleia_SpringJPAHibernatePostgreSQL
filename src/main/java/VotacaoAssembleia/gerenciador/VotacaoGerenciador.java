@@ -26,20 +26,13 @@ public class VotacaoGerenciador {
         List<Voto> list = votoGerenciador.findAll();
         int x = list.size();
         System.out.println("Votos: " + x);
-//        for(Voto y : list){
         for (int i = 0; i < x; i++) {
             System.out.println(list.get(i).getEscolha());
             System.out.println(list);
         }
-        System.out.println("Listou os votos");
-
-
-        System.out.println("Inciciou a Decisao");
         int sim = 0;
         int nao = 0;
-        System.out.println("sim: " + sim);
         String votacao = "";
-
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getPauta().getIdPauta() == idPauta && list.get(i).getEscolha() == 'S') {
                 sim++;
@@ -65,7 +58,6 @@ public class VotacaoGerenciador {
         Votacao decisao = new Votacao(pauta, sim,nao,sim+nao,votacao);
         System.out.println(decisao);
         votacaoRepository.save(decisao);
-
         return decisao;
     }
 }

@@ -12,6 +12,8 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+import static VotacaoAssembleia.DesafioTecnicoVotacaoAssembleia.controleCadastroExistente;
+
 @RestController
 @RequestMapping("/pauta")
 
@@ -33,28 +35,30 @@ public class PautaRest {
         Pauta obj = pautaGerenciador.findById(id);
         return ResponseEntity.ok().body(obj);
     }
-//    @GetMapping
-//    public List<Pauta> listarTodasPautas() {
-//        return gerenciador.listar();
-//    }
-//
-//    @GetMapping("{id}")
-//    public Pauta buscarPorId(@PathVariable("id") int id) {
-//        return gerenciador.pesquisar(id);
-//    }
 
     @PostMapping
-    public ResponseEntity<Pauta> insert(@RequestBody @Valid Pauta obj){
-        obj = pautaGerenciador.insert(obj);
+    public ResponseEntity<?> insert(@RequestBody @Valid Pauta pauta){
+        pauta = pautaGerenciador.insert(pauta);
+        if(controleCadastroExistente==1){
+            controleCadastroExistente=0;
+            return ResponseEntity.badRequest().body("Pauta já existente. A pauta não foi cadastrada.");
+        };
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(obj.getIdPauta()).toUri();
+                .buildAndExpand(pauta.getIdPauta()).toUri();
         System.out.println("Teste salvar Pauta");
-        return ResponseEntity.created(uri).body(obj);
+        return ResponseEntity.created(uri).body(pauta);
     }
 
-//    @PostMapping
-//    public Pauta cadastrar(@RequestBody Pauta pauta) {
-//        return gerenciador.salvar(pauta);
-//    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        pautaGerenciador.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Pauta> update(@PathVariable Integer id, @RequestBody Pauta obj) {
+        obj = pautaGerenciador.update(id, obj);
+        return ResponseEntity.ok().body(obj);
+    }
 
 }
