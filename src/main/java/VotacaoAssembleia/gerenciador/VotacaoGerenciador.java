@@ -5,6 +5,8 @@ import VotacaoAssembleia.acervo.VotoRepository;
 import VotacaoAssembleia.dominio.Votacao;
 import VotacaoAssembleia.dominio.Pauta;
 import VotacaoAssembleia.dominio.Voto;
+import VotacaoAssembleia.producer.api.AmqpApi;
+import VotacaoAssembleia.producer.dto.MessageQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +59,14 @@ public class VotacaoGerenciador {
         Pauta pauta = pautaGerenciador.findById(idPauta);
         Votacao decisao = new Votacao(pauta, sim,nao,sim+nao,votacao);
         System.out.println(decisao);
+        MessageQueue msg = new MessageQueue();
+        msg.setText("teste");
+//      message := models.ConvertArrayByteToMessage(msg.Body)
+//      msg.ConvertArrayByteToMessage(decisao);
+        System.out.println("msg: "+msg);
         votacaoRepository.save(decisao);
+        AmqpApi amqpApi = new AmqpApi();
+//        amqpApi.sendTeste(msg);
         return decisao;
     }
 }
