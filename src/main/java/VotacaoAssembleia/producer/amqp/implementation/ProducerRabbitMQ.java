@@ -1,9 +1,6 @@
-//package com.example.spring.producer.amqp.implementation;
 package VotacaoAssembleia.producer.amqp.implementation;
 
-//import com.example.spring.producer.amqp.AmqpProducer;
 import VotacaoAssembleia.producer.amqp.AmqpProducer;
-//import com.example.spring.producer.dto.MessageQueue;
 import VotacaoAssembleia.producer.dto.MessageQueue;
 import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

@@ -1,4 +1,3 @@
-//package com.example.spring.producer.dto;
 package VotacaoAssembleia.producer.dto;
 
 public class MessageQueue {

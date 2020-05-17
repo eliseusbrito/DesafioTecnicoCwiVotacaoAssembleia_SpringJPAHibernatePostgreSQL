@@ -61,12 +61,11 @@ public class VotacaoGerenciador {
         System.out.println(decisao);
         MessageQueue msg = new MessageQueue();
         msg.setText("teste");
-//      message := models.ConvertArrayByteToMessage(msg.Body)
 //      msg.ConvertArrayByteToMessage(decisao);
         System.out.println("msg: "+msg);
         votacaoRepository.save(decisao);
         AmqpApi amqpApi = new AmqpApi();
-//        amqpApi.sendTeste(msg);
+      amqpApi.sendTeste(msg);
         return decisao;
     }
 }

@@ -1,4 +1,3 @@
-//package com.example.spring.producer.configuration;
 package VotacaoAssembleia.producer.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,9 +1,6 @@
-//package com.example.spring.producer.api;
 package VotacaoAssembleia.producer.api;
 
-//import com.example.spring.producer.dto.MessageQueue;
 import VotacaoAssembleia.producer.dto.MessageQueue;
-//import com.example.spring.producer.service.AmqpService;
 import VotacaoAssembleia.producer.service.AmqpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +26,5 @@ public class AmqpApi {
         System.out.println("message: "+message);
         service.sendToConsumer(message);
     }
-
-
-
 
 }

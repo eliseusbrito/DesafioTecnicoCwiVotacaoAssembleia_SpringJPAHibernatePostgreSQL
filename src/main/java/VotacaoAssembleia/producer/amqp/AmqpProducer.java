@@ -1,4 +1,3 @@
-//package com.example.spring.producer.amqp;
 package VotacaoAssembleia.producer.amqp;
 
 

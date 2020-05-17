@@ -5,6 +5,9 @@ import VotacaoAssembleia.dominio.Associado;
 import VotacaoAssembleia.dominio.Pauta;
 import VotacaoAssembleia.dominio.Voto;
 import VotacaoAssembleia.gerenciador.exceptions.ResourceNotFoundException;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.apache.catalina.connector.Request;
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,8 @@ public class VotoGerenciador {
     private PautaRepository pautaRepository;
     @Autowired
     private AssociadoRepository associadoRepository;
+    @Autowired
+    private AssociadoGerenciador associadoGerenciador;
 
     public List<Voto> findAll(){
         return votoRepository.findAll();
@@ -44,6 +49,7 @@ public class VotoGerenciador {
     }
 
     public Voto salvar(int idPauta, int idAssociado, char escolha){
+        String cpfAssociado = associadoGerenciador.findById(idAssociado).getCpf();
         if (abertaVotacao== false ) {
             String str = "Votação id="+idPauta+" não esta aberta, não sendo possível salvar votos.";
             System.out.println(str);
