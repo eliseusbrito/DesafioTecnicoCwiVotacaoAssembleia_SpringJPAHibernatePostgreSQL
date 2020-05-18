@@ -151,7 +151,36 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Pedro2\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"raw": "{\r\n  \"nome\": \"Antonio\",\r\n  \"cpf\": \"62797525000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://votacao-assembleia.herokuapp.com/associado",
+							"protocol": "https",
+							"host": [
+								"votacao-assembleia",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"associado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaAssociadoCpfInvalido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Antonio\",\r\n  \"cpf\": \"66666666\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
