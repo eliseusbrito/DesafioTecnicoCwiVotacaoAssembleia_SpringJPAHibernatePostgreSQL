@@ -22,7 +22,6 @@ public class APIRest {
             if (conn.getResponseCode() != 200) {
                 System.out.println("Erro " + conn.getResponseCode() + " ao obter dados da URL " + url);
                     return 200;
-
             }
 
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));

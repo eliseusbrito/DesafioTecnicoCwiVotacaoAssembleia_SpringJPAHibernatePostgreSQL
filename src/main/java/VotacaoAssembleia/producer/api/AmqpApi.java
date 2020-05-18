@@ -18,12 +18,8 @@ public class AmqpApi {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping("/send")
     public void sendToConsumer(@RequestBody MessageQueue message) {
+        System.out.println("message dentro de postMapping: "+message);
         service.sendToConsumer(message);
     }
-
-//    public void sendTeste(@RequestBody MessageQueue message) {
-//        System.out.println("message: "+message);
-//        service.sendToConsumer(message);
-//    }
 
 }

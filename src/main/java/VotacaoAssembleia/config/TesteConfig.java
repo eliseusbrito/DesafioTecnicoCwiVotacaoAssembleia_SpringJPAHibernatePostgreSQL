@@ -34,7 +34,7 @@ public class TesteConfig implements CommandLineRunner{
         Associado u1 = new Associado("Maria Brown", "19839091069");
         Associado u2 = new Associado( "Alex Green", "62289608068");
         Associado u3 = new Associado( "Pedrinho", "22345678900");
-        Associado u4 = new Associado( "Davi", "32345678900");
+        Associado u4 = new Associado( "Davi", "73255600600");
         associadoRepository.saveAll(Arrays.asList(u1,u2,u3,u4));
 
         Pauta p1 = new Pauta("Votacao para aumentar numero de Sócios");

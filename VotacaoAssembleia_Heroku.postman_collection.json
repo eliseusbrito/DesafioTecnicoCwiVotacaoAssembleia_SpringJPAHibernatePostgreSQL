@@ -874,6 +874,69 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bonus2 Mensageria RabbitMQ",
+			"item": [
+				{
+					"name": "Post Resultado Assembleia Descritivo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\":\"A votação da pauta 12 teve 95% de aprovação! Parabéns aos envolvidos.\"\n\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://votacao-assembleia.herokuapp.com/send",
+							"protocol": "https",
+							"host": [
+								"votacao-assembleia",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Resultado Assembleia Simulado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\":\"idVotacao: 1, sim: 2, nao: 1, total: 3, decisao: Pauta id=1 Aprovada!\"\n\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
