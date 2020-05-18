@@ -50,8 +50,14 @@ public class VotoRest {
             return ResponseEntity.badRequest().body("Votação não esta aberta, não sendo possível salvar votos.");
         }
         if(msgVotoRealizado==1) {
-        msgVotoRealizado=0;
-        return ResponseEntity.ok().body(obj);}
+            msgVotoRealizado=0;
+            return ResponseEntity.ok().body(obj);}
+        if(controleCPFvalidacao==1) {
+            controleCPFvalidacao=0;
+            return ResponseEntity.badRequest().body("CPF não é válido para votação: {\"status\":\"UNABLE_TO_VOTE\"}");}
+        if(controleCpfUrl==1) {
+            controleCpfUrl=0;
+            return ResponseEntity.badRequest().body("Erro ao obter dados do CPF na URL.");}
         return ResponseEntity.badRequest().body("Voto já realizado!");
     }
 

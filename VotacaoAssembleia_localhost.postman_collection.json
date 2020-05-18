@@ -1,0 +1,941 @@
+{
+	"info": {
+		"_postman_id": "8a0b0a51-6b7e-4a46-8e72-da450302c596",
+		"name": "_VotacaoAssembleia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Associado",
+			"item": [
+				{
+					"name": "BuscarTodosAssociados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaAssociado1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Maria\",\n\t\"cpf\":\"57658785040\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/associado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"associado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaAssociado2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Joao\",\r\n  \"cpf\": \"62289608068\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/associado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"associado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaAssociado3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/associado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"associado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaAssociadoSemCPF",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/associado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"associado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaAssociadoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/associado/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"associado",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaAssociado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"João da Silva\",\r\n    \"cpf\": \"62289608068\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/associado/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"associado",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarAssociadoPorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pauta",
+			"item": [
+				{
+					"name": "BuscarTodasPautas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaPautaX",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"descricao\":\"Votacao para aumentar numero de Sócios\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pauta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarPautaY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Reduzir taxa de juros dos Financiamentos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pauta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarPautaZ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Aprovar verba para propaganda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pauta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarPautaErro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Aprovar verba para propaganda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pauta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarPautaGenerica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descricao\": \"Aprovar verba para propaganda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pauta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaPautaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaPauta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Altera Descrição\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pauta/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarPautaPorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pauta/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pauta",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Sessão Votação",
+			"item": [
+				{
+					"name": "SessãoVotaçãoPauta1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/votacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SessãoVotaçãoPauta1Tempo2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/votacao/1/tempo/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votacao",
+								"1",
+								"tempo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SessãoVotaçãoPauta2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/votacao/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votacao",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SessãoVotaçãoPautaGenerica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/votacao/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"votacao",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Votos",
+			"item": [
+				{
+					"name": "AdicionaVotoPauta1Associado1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/1/associado/1/escolha/S",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"1",
+								"associado",
+								"1",
+								"escolha",
+								"S"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaVotoPauta1Associado2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/1/associado/2/escolha/S",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"1",
+								"associado",
+								"2",
+								"escolha",
+								"S"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaVotoPauta1Associado3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/1/associado/3/escolha/N",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"1",
+								"associado",
+								"3",
+								"escolha",
+								"N"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaVotoLetraErrada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/2/associado/3/escolha/P",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"2",
+								"associado",
+								"3",
+								"escolha",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaVotoPauta2Associado1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/2/associado/1/escolha/S",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"2",
+								"associado",
+								"1",
+								"escolha",
+								"S"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaVotoPauta2Associado2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/2/associado/2/escolha/N",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"2",
+								"associado",
+								"2",
+								"escolha",
+								"N"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaVotoGenerico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Pedro\",\r\n  \"cpf\": \"19839091069\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto/pauta/3/associado/1/escolha/N",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto",
+								"pauta",
+								"3",
+								"associado",
+								"1",
+								"escolha",
+								"N"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarTodosVotos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarVotoById_1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bonus1 IntegraçãoOutrosSistemas",
+			"item": [
+				{
+					"name": "GET Able",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Disable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://user-info.herokuapp.com/users/62289608068",
+							"protocol": "https",
+							"host": [
+								"user-info",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"62289608068"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET NotFound",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://user-info.herokuapp.com/users/5765878504",
+							"protocol": "https",
+							"host": [
+								"user-info",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"5765878504"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bonus2 Mensageria RabbitMQ",
+			"item": [
+				{
+					"name": "Post Resultado Assembleia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\":\"idVotacao: 1, sim: 2, nao: 1, total: 3, decisao: Pauta id=1 Aprovada!\"\n\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post TesteAssembleia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idPauta\": 1,\r\n        \"descricao\": \"Votacao para aumentar numero de Sócios\",\r\n        \"votacao\": {\r\n            \"idVotacao\": 1,\r\n            \"sim\": 2,\r\n            \"nao\": 1,\r\n            \"total\": 3,\r\n            \"decisao\": \"Pauta id=1 Aprovada!\"\r\n\t\t}\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

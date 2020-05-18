@@ -21,10 +21,9 @@ public class AmqpApi {
         service.sendToConsumer(message);
     }
 
-
-    public void sendTeste(@RequestBody MessageQueue message) {
-        System.out.println("message: "+message);
-        service.sendToConsumer(message);
-    }
+//    public void sendTeste(@RequestBody MessageQueue message) {
+//        System.out.println("message: "+message);
+//        service.sendToConsumer(message);
+//    }
 
 }

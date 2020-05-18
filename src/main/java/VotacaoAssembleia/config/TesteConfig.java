@@ -31,8 +31,8 @@ public class TesteConfig implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        Associado u1 = new Associado("Maria Brown", "66666666666");
-        Associado u2 = new Associado( "Alex Green", "12345678900");
+        Associado u1 = new Associado("Maria Brown", "19839091069");
+        Associado u2 = new Associado( "Alex Green", "62289608068");
         Associado u3 = new Associado( "Pedrinho", "22345678900");
         Associado u4 = new Associado( "Davi", "32345678900");
         associadoRepository.saveAll(Arrays.asList(u1,u2,u3,u4));
@@ -62,8 +62,6 @@ public class TesteConfig implements CommandLineRunner{
 //        System.out.println("p1: "+p1);
 //
 ////        pautaGerenciador.update(p1.getIdPauta(),p1);
-//
-//
 //
 ////        pautaRepository.save(p2);
 //

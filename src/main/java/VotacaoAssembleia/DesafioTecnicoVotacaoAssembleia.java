@@ -12,6 +12,9 @@ public class DesafioTecnicoVotacaoAssembleia {
 	public static int controleCadastroExistente = 0;
 	public static int controleTipoVoto = 0;
 	public static int msgVotoRealizado = 0;
+	public static int controleCPFvalidacao = 0;
+	public static int controleCpfUrl = 0;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioTecnicoVotacaoAssembleia.class, args);

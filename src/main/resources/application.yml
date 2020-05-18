@@ -1,5 +1,4 @@
 server:
-#  port: 8081
   port: 8080
 
 spring:
@@ -10,14 +9,10 @@ spring:
       username: guest
       password: guest
       exchenge:
-#        producer: ex.producer.aula-spring
         producer: ex.producer.votacaoAssembleia
       routing-key:
-#        producer: rk.producer.aula-spring
         producer: rk.producer.votacaoAssembleia
       dead-letter:
-#        producer: dl.producer.aula-spring
         producer: dl.producer.votacaoAssembleia
       parking-lot:
-#        producer: pl.producer.aula-spring
         producer: pl.producer.votacaoAssembleia

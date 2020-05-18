@@ -64,8 +64,8 @@ public class VotacaoGerenciador {
 //      msg.ConvertArrayByteToMessage(decisao);
         System.out.println("msg: "+msg);
         votacaoRepository.save(decisao);
-        AmqpApi amqpApi = new AmqpApi();
-      amqpApi.sendTeste(msg);
+//        AmqpApi amqpApi = new AmqpApi();
+//        amqpApi.sendTeste(msg);
         return decisao;
     }
 }

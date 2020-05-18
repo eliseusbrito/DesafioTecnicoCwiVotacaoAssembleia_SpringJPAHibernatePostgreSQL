@@ -1,24 +1,12 @@
 package VotacaoAssembleia.gerenciador;
 
 import VotacaoAssembleia.acervo.*;
-import VotacaoAssembleia.dominio.Associado;
-import VotacaoAssembleia.dominio.Pauta;
+import VotacaoAssembleia.apiCpf.APIRest;
 import VotacaoAssembleia.dominio.Voto;
-import VotacaoAssembleia.gerenciador.exceptions.ResourceNotFoundException;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 import static VotacaoAssembleia.DesafioTecnicoVotacaoAssembleia.*;
 
@@ -44,12 +32,22 @@ public class VotoGerenciador {
         return obj.get();
     }
 
-    public Voto insert(Voto obj){
-        return votoRepository.save(obj);
-    }
-
     public Voto salvar(int idPauta, int idAssociado, char escolha){
         String cpfAssociado = associadoGerenciador.findById(idAssociado).getCpf();
+        APIRest apiRest = new APIRest();
+        int situacaoCPF = apiRest.situacaoCPF(cpfAssociado);
+        if (situacaoCPF == 20 ) {
+            String str = "CPF não é válido para votação.";
+            System.out.println(str);
+            controleCPFvalidacao=1;
+            return null;
+        }
+        if (situacaoCPF == 200 ) {
+            String str = "Erro ao obter dados do CPF na URL.";
+            System.out.println(str);
+            controleCpfUrl=1;
+            return null;
+        }
         if (abertaVotacao== false ) {
             String str = "Votação id="+idPauta+" não esta aberta, não sendo possível salvar votos.";
             System.out.println(str);
@@ -78,8 +76,6 @@ public class VotoGerenciador {
             System.out.println("Você deve votar [S] para sim ou [N] para não. Este voto não foi considerado.");
             controleTipoVoto=1;
             return null;}
-
     }
-
 }
 
