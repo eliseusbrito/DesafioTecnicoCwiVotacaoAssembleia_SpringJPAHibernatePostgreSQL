@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
+
 import static VotacaoAssembleia.DesafioTecnicoVotacaoAssembleia.*;
 
 @Service
@@ -19,13 +21,13 @@ public class AssociadoGerenciador {
     @Autowired
     private AssociadoRepository associadoRepository;
 
-    public List<Associado> findAll(){
+    public List<Associado> findAll() {
         System.out.println("Listou todos Associados.");
         return associadoRepository.findAll();
-        }
+    }
 
-    public Associado findById(Integer id){
-        Optional<Associado> obj=associadoRepository.findById(id);
+    public Associado findById(Integer id) {
+        Optional<Associado> obj = associadoRepository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
@@ -35,7 +37,7 @@ public class AssociadoGerenciador {
             if (cpf.equals(associadoExistente.getCpf())) {
                 System.out.println("CPF existente.");
                 int id = associadoExistente.getId();
-                Associado associado =  findById(id);
+                Associado associado = findById(id);
                 System.out.println(associado);
                 return associado;
             }
@@ -43,20 +45,16 @@ public class AssociadoGerenciador {
         return null;
     }
 
-    public Associado insert(Associado associado){
-        List<Associado> associados = associadoRepository.findAll();
-        if (associado.getNome().equals("")||associado.getCpf().equals("")){
+    public Associado insert(Associado associado) {
+        if (associado.getNome().equals("") || associado.getCpf().equals("")) {
             System.out.println("Algum campo não foi prenchido. O associado não foi cadastrado.");
-            return null;        }
-        for (Associado associadoExistente : associados) {
-            if (associado.getCpf().equals(associadoExistente.getCpf())) {
-                System.out.println("CPF já existente. O associado não foi cadastrado. ");
-                int id = associado.getId();
-                controleCadastroExistente = 1;
-                return null;
-            }
+            return null;
         }
-        System.out.println("Break não funcionou");
+        Integer quantidadeDeAssociadosComMesmoCpf = associadoRepository.countByCpf(associado.getCpf());
+        if (quantidadeDeAssociadosComMesmoCpf>0){
+            System.out.println("CPF já existente. O associado não foi cadastrado. ");
+            return null;
+        }
         return associadoRepository.save(associado);
     }
 

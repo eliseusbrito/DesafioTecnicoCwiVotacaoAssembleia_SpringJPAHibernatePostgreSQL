@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AssociadoRepository extends JpaRepository<Associado, Integer> {
 
+    Integer countByCpf(String cpf);
+
 }

@@ -103,7 +103,7 @@ public class AssociadoGerenciadorTest {
         int idAssociado3 = 3;
         Associado associado03 = new Associado("Marieta", "32345678933");
         associado03.setId(idAssociado3);
-        Mockito.when(associadoRepository.findAll()).thenReturn(associadosDaAssociacao);
+        Mockito.when(associadoRepository.countByCpf(associado03.getCpf())).thenReturn(0);
         Mockito.when(associadoRepository.save(associado03)).thenReturn(associado03);
         /*-------- Act -------*/
         Associado associado = associadoGerenciador.insert(associado03);
