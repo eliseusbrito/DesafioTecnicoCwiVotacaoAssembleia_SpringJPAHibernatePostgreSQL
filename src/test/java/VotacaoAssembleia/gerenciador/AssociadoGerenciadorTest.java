@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.*;
@@ -67,7 +68,7 @@ public class AssociadoGerenciadorTest {
         List<Associado> associado = associadoGerenciador.findAll();
         /*----- Verificação -----*/
         verify(associadoRepository, times(1)).findAll();
-        assertThat(associadosDaAssociacao.size(),is(2));
+        Assert.assertThat(associadosDaAssociacao.size(),is(2));
     }
 
     @Test
@@ -98,23 +99,16 @@ public class AssociadoGerenciadorTest {
 
     @Test
     public void testIncluirNovoAssociado() {
+        /*-------- Arrange -------*/
         int idAssociado3 = 3;
         Associado associado03 = new Associado("Marieta", "32345678933");
         associado03.setId(idAssociado3);
-//        associadosDaAssociacao.add(associado03);
-        /*ensinando comportamento*/
         Mockito.when(associadoRepository.findAll()).thenReturn(associadosDaAssociacao);
         Mockito.when(associadoRepository.save(associado03)).thenReturn(associado03);
-        /*------ Ação - Roda o metodo que se quer testar -----*/
-        System.out.println("Denovo"+associado03);
+        /*-------- Act -------*/
         Associado associado = associadoGerenciador.insert(associado03);
-        System.out.println(associadosDaAssociacao.size());
-        Associado associadoNew = associadoGerenciador.findById(3);
-        System.out.println("associadoNew= " + associadoNew);
-        /*----- Verificação -----*/
-//        verify(associadoRepository, times(1)).save(associado);
-        assertThat(associado.getNome(),is("Marieta"));
-        assertThat(associadosDaAssociacao.size(),is(3));
+        /*-------- Verify -------*/
+        verify(associadoRepository, times(1)).save(associado);
     }
 
     @Test
